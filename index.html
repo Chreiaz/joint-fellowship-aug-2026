@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We're Back | AGCMI Joint Fellowship</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;color:#fff}
+.page{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:30px;opacity:0;visibility:hidden;transition:1s}
+.page.active{opacity:1;visibility:visible}
+button{padding:14px 28px;border:none;border-radius:999px;font-weight:700;cursor:pointer;background:#17e0bf;color:#000;margin-top:25px}
+.notification{width:min(450px,90%);background:#111;padding:25px;border-radius:22px;box-shadow:0 0 40px rgba(23,224,191,.2)}
+.typing-box{font-size:1.2rem;max-width:800px;line-height:1.8}
+.cursor{display:inline-block;animation:blink .8s infinite}
+@keyframes blink{50%{opacity:0}}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1);transition:2s}
+.slide.active{opacity:1;transform:scale(1.08)}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.memory-text{position:absolute;z-index:10;font-size:clamp(2rem,6vw,4rem);font-weight:900;text-shadow:0 0 20px #000}
+.poster{width:95%;height:95%;object-fit:contain}
+.final h1{font-size:clamp(3rem,8vw,6rem)}
+.details{margin-top:25px;font-size:1.15rem;line-height:2}
+</style>
+</head>
+<body>
+
+<div class="page active" id="page1">
+<div class="notification">
+<h2>📩 New Message</h2>
+<p><strong>Youth Approved by God</strong></p>
+<p>Sent you an invitation...</p>
+<button onclick="showPage(2)">Open</button>
+</div>
+</div>
+
+<div class="page" id="page2">
+<div class="typing-box"><span id="typing"></span><span class="cursor">|</span></div>
+<button id="continueBtn" style="display:none" onclick="startMemories()">Continue</button>
+</div>
+
+<div class="page" id="page3">
+<div class="slide active" style="background-image:url('joint1.jpg')"></div>
+<div class="slide" style="background-image:url('joint2.jpg')"></div>
+<div class="slide" style="background-image:url('joint3.jpg')"></div>
+<div class="slide" style="background-image:url('joint4.jpg')"></div>
+<div class="slide" style="background-image:url('joint5.jpg')"></div>
+<div class="overlay"></div>
+<div class="memory-text" id="memoryText">Remember This?</div>
+</div>
+
+<div class="page" id="page4">
+<h1>WE'RE BACK.</h1>
+<p style="margin-top:20px;font-size:1.3rem">And we'd love to see you again. 🤍</p>
+<button onclick="showPage(5)">Show Me</button>
+</div>
+
+<div class="page" id="page5">
+<img src="poster.jpg" class="poster">
+<button onclick="showPage(6)">View Invitation</button>
+</div>
+
+<div class="page final" id="page6">
+<h1>JOIN US</h1>
+<div class="details">
+To Every Youth From Every AGCMI Local Church,<br><br>
+📍 AGCMI Pacita<br>
+🗓 August 23, 2026<br>
+🕒 3:00 PM<br><br>
+Bring Your Friends.<br>
+Bring Your Praise.<br>
+Bring Your Energy.<br><br>
+We'll Save You A Seat. 🤍
+</div>
+</div>
+
+<script>
+function showPage(page){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page'+page).classList.add('active');
+}
+
+const message=`Youth Approved by God is typing...\n\nHey.\n\nIt's been a while.\n\nWe've missed this.\n\nWe have something to show you.`;
+let i=0;
+function type(){
+const target=document.getElementById('typing');
+if(i<message.length){
+target.innerHTML+=message.charAt(i)==='\n' ? '<br>' : message.charAt(i);
+i++;
+setTimeout(type,45);
+}else{
+document.getElementById('continueBtn').style.display='inline-block';
+}}
+type();
+
+const memoryTexts=['Remember This?','The Worship.','The Fellowship.','The Laughter.','The Memories.'];
+
+function startMemories(){
+showPage(3);
+const slides=document.querySelectorAll('.slide');
+let current=0;
+const memoryLabel=document.getElementById('memoryText');
+
+const interval=setInterval(()=>{
+slides[current].classList.remove('active');
+current++;
+if(current>=slides.length){
+clearInterval(interval);
+setTimeout(()=>showPage(4),2500);
+return;
+}
+slides[current].classList.add('active');
+memoryLabel.innerText=memoryTexts[current];
+},3500);
+}
+</script>
+</body>
+</html>
