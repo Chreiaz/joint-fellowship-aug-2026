@@ -3,117 +3,414 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>We're Back | AGCMI Joint Fellowship</title>
+
+<meta property="og:title" content="AGCMI Joint Fellowship 2026">
+<meta property="og:description" content="To every youth from every AGCMI local church.">
+<meta property="og:image" content="https://chreiaz.github.io/joint-fellowship-aug-2026/poster.jpg">
+<meta property="og:url" content="https://chreiaz.github.io/joint-fellowship-aug-2026/">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-html,body{width:100%;height:100%;overflow:hidden;background:#000;color:#fff}
-.page{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:30px;opacity:0;visibility:hidden;transition:1s}
-.page.active{opacity:1;visibility:visible}
-button{padding:14px 28px;border:none;border-radius:999px;font-weight:700;cursor:pointer;background:#17e0bf;color:#000;margin-top:25px}
-.notification{width:min(450px,90%);background:#111;padding:25px;border-radius:22px;box-shadow:0 0 40px rgba(23,224,191,.2)}
-.typing-box{font-size:1.2rem;max-width:800px;line-height:1.8}
-.cursor{display:inline-block;animation:blink .8s infinite}
-@keyframes blink{50%{opacity:0}}
-.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1);transition:2s}
-.slide.active{opacity:1;transform:scale(1.08)}
-.overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
-.memory-text{position:absolute;z-index:10;font-size:clamp(2rem,6vw,4rem);font-weight:900;text-shadow:0 0 20px #000}
-.poster{width:95%;height:95%;object-fit:contain}
-.final h1{font-size:clamp(3rem,8vw,6rem)}
-.details{margin-top:25px;font-size:1.15rem;line-height:2}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+html,body{
+width:100%;
+height:100%;
+background:#000;
+color:#fff;
+overflow:hidden;
+}
+
+.page{
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+opacity:0;
+visibility:hidden;
+transition:1s;
+}
+
+.page.active{
+opacity:1;
+visibility:visible;
+}
+
+.notification{
+width:min(450px,90%);
+background:#111;
+padding:25px;
+border-radius:24px;
+box-shadow:0 0 40px rgba(23,224,191,.15);
+}
+
+.notification h2{
+margin-bottom:10px;
+}
+
+button{
+padding:14px 28px;
+border:none;
+border-radius:999px;
+font-weight:800;
+font-size:1rem;
+cursor:pointer;
+background:#17e0bf;
+color:#000;
+margin-top:25px;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.typing-box{
+max-width:800px;
+font-size:1.3rem;
+line-height:1.9;
+}
+
+.cursor{
+display:inline-block;
+animation:blink .8s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:0;
+}
+}
+
+.slide{
+position:absolute;
+inset:0;
+background-size:cover;
+background-position:center;
+opacity:0;
+transform:scale(1);
+transition:2s;
+}
+
+.slide.active{
+opacity:1;
+transform:scale(1.08);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.45);
+}
+
+.memory-text{
+position:absolute;
+z-index:10;
+font-size:clamp(2rem,6vw,4rem);
+font-weight:900;
+text-shadow:0 0 20px #000;
+padding:20px;
+}
+
+.back-title{
+font-size:clamp(3rem,10vw,7rem);
+font-weight:900;
+}
+
+.back-sub{
+margin-top:20px;
+font-size:1.3rem;
+}
+
+.poster{
+max-width:95%;
+max-height:70vh;
+object-fit:contain;
+border-radius:20px;
+box-shadow:0 0 50px rgba(255,255,255,.1);
+}
+
+.details{
+margin-top:30px;
+font-size:1.15rem;
+line-height:2;
+}
+
+.final{
+overflow:auto;
+padding-top:40px;
+padding-bottom:40px;
+}
+
 </style>
 </head>
 <body>
 
+<!-- PAGE 1 -->
+
 <div class="page active" id="page1">
+
 <div class="notification">
+
 <h2>📩 New Message</h2>
+
 <p><strong>Youth Approved by God</strong></p>
+
 <p>Sent you an invitation...</p>
-<button onclick="showPage(2)">Open</button>
+
+<button onclick="showPage(2);startTyping();">
+Open
+</button>
+
 </div>
+
 </div>
+
+<!-- PAGE 2 -->
 
 <div class="page" id="page2">
-<div class="typing-box"><span id="typing"></span><span class="cursor">|</span></div>
-<button id="continueBtn" style="display:none" onclick="startMemories()">Continue</button>
+
+<div class="typing-box">
+
+<span id="typing"></span>
+
+<span class="cursor">|</span>
+
 </div>
+
+<button id="continueBtn" style="display:none;" onclick="startMemories()">
+
+Continue
+
+</button>
+
+</div>
+
+<!-- PAGE 3 -->
 
 <div class="page" id="page3">
+
 <div class="slide active" style="background-image:url('joint1.jpg')"></div>
+
 <div class="slide" style="background-image:url('joint2.jpg')"></div>
+
 <div class="slide" style="background-image:url('joint3.jpg')"></div>
+
 <div class="slide" style="background-image:url('joint4.jpg')"></div>
+
 <div class="slide" style="background-image:url('joint5.jpg')"></div>
+
 <div class="overlay"></div>
-<div class="memory-text" id="memoryText">Remember This?</div>
+
+<div class="memory-text" id="memoryText">
+
+Remember This?
+
 </div>
+
+</div>
+
+<!-- PAGE 4 -->
 
 <div class="page" id="page4">
-<h1>WE'RE BACK.</h1>
-<p style="margin-top:20px;font-size:1.3rem">And we'd love to see you again. 🤍</p>
-<button onclick="showPage(5)">Show Me</button>
+
+<div class="back-title">
+
+WE'RE BACK.
+
 </div>
+
+<p class="back-sub">
+
+And we'd love to see you again. 🤍
+
+</p>
+
+<button onclick="showPage(5)">
+
+Continue
+
+</button>
+
+</div>
+
+<!-- PAGE 5 -->
 
 <div class="page" id="page5">
-<img src="poster.jpg" class="poster">
-<button onclick="showPage(6)">View Invitation</button>
+
+<h1 style="font-size:clamp(3rem,8vw,6rem);">
+
+JOINT FELLOWSHIP
+
+</h1>
+
+<p style="margin-top:20px;font-size:1.2rem;">
+
+Did you miss this?
+
+</p>
+
+<button onclick="showPage(6)">
+
+See Invitation
+
+</button>
+
 </div>
 
+<!-- PAGE 6 -->
+
 <div class="page final" id="page6">
-<h1>JOIN US</h1>
+
+<img src="poster.jpg" class="poster">
+
 <div class="details">
-To Every Youth From Every AGCMI Local Church,<br><br>
+
 📍 AGCMI Pacita<br>
+
 🗓 August 23, 2026<br>
+
 🕒 3:00 PM<br><br>
+
+To Every Youth From Every AGCMI Local Church,<br><br>
+
 Bring Your Friends.<br>
+
 Bring Your Praise.<br>
+
 Bring Your Energy.<br><br>
+
 We'll Save You A Seat. 🤍
+
 </div>
+
 </div>
 
 <script>
+
 function showPage(page){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.remove('active');
+});
+
 document.getElementById('page'+page).classList.add('active');
+
 }
 
-const message=`Youth Approved by God is typing...\n\nHey.\n\nIt's been a while.\n\nWe've missed this.\n\nWe have something to show you.`;
-let i=0;
+const message = `Youth Approved by God is typing...
+
+Hey.
+
+It's been a while.
+
+We've missed this.
+
+Remember the worship?
+
+The fellowship?
+
+The laughter?
+
+The memories?
+
+We're bringing it back.
+
+And we'd love to see you again.`;
+
+let i = 0;
+let started = false;
+
 function type(){
-const target=document.getElementById('typing');
-if(i<message.length){
-target.innerHTML+=message.charAt(i)==='\n' ? '<br>' : message.charAt(i);
+
+const target = document.getElementById('typing');
+
+if(i < message.length){
+
+target.innerHTML += message.charAt(i) === '\n'
+? '<br>'
+: message.charAt(i);
+
 i++;
-setTimeout(type,45);
+
+setTimeout(type,40);
+
 }else{
+
 document.getElementById('continueBtn').style.display='inline-block';
-}}
+
+}
+
+}
+
+function startTyping(){
+
+if(started) return;
+
+started = true;
+
 type();
 
-const memoryTexts=['Remember This?','The Worship.','The Fellowship.','The Laughter.','The Memories.'];
+}
+
+const memoryTexts = [
+'Remember This?',
+'The Worship.',
+'The Fellowship.',
+'The Laughter.',
+'The Memories.'
+];
 
 function startMemories(){
-showPage(3);
-const slides=document.querySelectorAll('.slide');
-let current=0;
-const memoryLabel=document.getElementById('memoryText');
 
-const interval=setInterval(()=>{
+showPage(3);
+
+const slides = document.querySelectorAll('.slide');
+
+let current = 0;
+
+const memoryLabel = document.getElementById('memoryText');
+
+const interval = setInterval(()=>{
+
 slides[current].classList.remove('active');
+
 current++;
-if(current>=slides.length){
+
+if(current >= slides.length){
+
 clearInterval(interval);
-setTimeout(()=>showPage(4),2500);
+
+setTimeout(()=>{
+showPage(4);
+},2500);
+
 return;
+
 }
+
 slides[current].classList.add('active');
-memoryLabel.innerText=memoryTexts[current];
+
+memoryLabel.innerText = memoryTexts[current];
+
 },3500);
+
 }
+
 </script>
+
 </body>
 </html>
