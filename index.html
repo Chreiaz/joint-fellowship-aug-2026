@@ -315,15 +315,18 @@ alt="Joint Fellowship Poster">
 
 function showPage(page){
 
-document
-.querySelectorAll('.page')
-.forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(function(p){
+        p.classList.remove('active');
+    });
 
-document
-.getElementById('page'+page)
-.classList.add('active');
+    document.getElementById('page' + page).classList.add('active');
 
 }
+
+
+/* =========================
+   TYPING ANIMATION
+========================= */
 
 const message = `Youth Approved by God is typing...
 
@@ -350,94 +353,107 @@ let started = false;
 
 function type(){
 
-const target =
-document.getElementById('typing');
+    const target = document.getElementById('typing');
 
-if(i < message.length){
+    if(i < message.length){
 
-target.innerHTML +=
-message.charAt(i) === '\n'
-? '<br>'
-: message.charAt(i);
+        if(message.charAt(i) === '\n'){
+            target.innerHTML += '<br>';
+        }else{
+            target.innerHTML += message.charAt(i);
+        }
 
-i++;
+        i++;
 
-setTimeout(type,40);
+        setTimeout(type, 40);
 
-}else{
+    }else{
 
-document
-.getElementById('continueBtn')
-.style.display = 'inline-block';
+        document.getElementById('continueBtn').style.display = 'inline-block';
 
-}
+    }
 
 }
 
 function startTyping(){
 
-if(started) return;
+    if(started) return;
 
-started = true;
+    started = true;
 
-type();
+    type();
 
 }
 
+
+/* =========================
+   MEMORY SLIDESHOW
+========================= */
+
 const memoryTexts = [
-
-'Remember This?',
-
-'The Worship.',
-
-'The Fellowship.',
-
-'The Laughter.',
-
-'The Memories.'
-
+    'Remember This?',
+    'The Worship.',
+    'The Fellowship.',
+    'The Laughter.',
+    'The Memories.'
 ];
+
+let slideshowStarted = false;
 
 function startMemories(){
 
-showPage(3);
+    if(slideshowStarted) return;
 
-const slides =
-document.querySelectorAll('.slide');
+    slideshowStarted = true;
 
-let current = 0;
+    showPage(3);
 
-const memoryLabel =
-document.getElementById('memoryText');
+    const slides = document.querySelectorAll('#page3 .slide');
 
-slides[current].classList.add('active');
+    const memoryLabel = document.getElementById('memoryText');
 
-const interval = setInterval(()=>{
+    let current = 0;
 
-slides[current].classList.remove('active');
+    /* Make sure the first photo is visible */
 
-current++;
+    slides.forEach(function(slide){
+        slide.classList.remove('active');
+    });
 
-if(current >= slides.length){
+    slides[0].classList.add('active');
 
-clearInterval(interval);
+    memoryLabel.innerText = memoryTexts[0];
 
-setTimeout(()=>{
 
-showPage(4);
+    /* Change photo every 3.5 seconds */
 
-},2500);
+    const interval = setInterval(function(){
 
-return;
+        slides[current].classList.remove('active');
 
-}
+        current++;
 
-slides[current].classList.add('active');
+        /* Finished all five photos */
 
-memoryLabel.innerText =
-memoryTexts[current];
+        if(current >= slides.length){
 
-},3500);
+            clearInterval(interval);
+
+            setTimeout(function(){
+
+                showPage(4);
+
+            }, 2500);
+
+            return;
+
+        }
+
+        slides[current].classList.add('active');
+
+        memoryLabel.innerText = memoryTexts[current];
+
+    }, 3500);
 
 }
 
