@@ -10,6 +10,7 @@
 <meta property="og:description" content="To every youth from every AGCMI local church.">
 <meta property="og:image" content="https://chreiaz.github.io/joint-fellowship-aug-2026/poster.jpg">
 <meta property="og:url" content="https://chreiaz.github.io/joint-fellowship-aug-2026/">
+<meta property="og:type" content="website">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -25,9 +26,9 @@ font-family:'Inter',sans-serif;
 html,body{
 width:100%;
 height:100%;
+overflow:hidden;
 background:#000;
 color:#fff;
-overflow:hidden;
 }
 
 .page{
@@ -49,27 +50,14 @@ opacity:1;
 visibility:visible;
 }
 
-.notification{
-width:min(450px,90%);
-background:#111;
-padding:25px;
-border-radius:24px;
-box-shadow:0 0 40px rgba(23,224,191,.15);
-}
-
-.notification h2{
-margin-bottom:10px;
-}
-
 button{
 padding:14px 28px;
 border:none;
 border-radius:999px;
-font-weight:800;
-font-size:1rem;
-cursor:pointer;
-background:#17e0bf;
+background:#1fe0bf;
 color:#000;
+font-weight:800;
+cursor:pointer;
 margin-top:25px;
 transition:.3s;
 }
@@ -78,9 +66,17 @@ button:hover{
 transform:scale(1.05);
 }
 
+.notification{
+width:min(450px,90%);
+background:#111;
+padding:25px;
+border-radius:24px;
+box-shadow:0 0 40px rgba(31,224,191,.15);
+}
+
 .typing-box{
 max-width:800px;
-font-size:1.3rem;
+font-size:1.25rem;
 line-height:1.9;
 }
 
@@ -130,23 +126,17 @@ font-size:clamp(3rem,10vw,7rem);
 font-weight:900;
 }
 
-.back-sub{
-margin-top:20px;
-font-size:1.3rem;
-}
-
 .poster{
 max-width:95%;
-max-height:70vh;
+max-height:90vh;
 object-fit:contain;
 border-radius:20px;
-box-shadow:0 0 50px rgba(255,255,255,.1);
 }
 
 .details{
-margin-top:30px;
 font-size:1.15rem;
 line-height:2;
+max-width:800px;
 }
 
 .final{
@@ -172,7 +162,9 @@ padding-bottom:40px;
 <p>Sent you an invitation...</p>
 
 <button onclick="showPage(2);startTyping();">
+
 Open
+
 </button>
 
 </div>
@@ -191,7 +183,11 @@ Open
 
 </div>
 
-<button id="continueBtn" style="display:none;" onclick="startMemories()">
+<button id="continueBtn"
+
+style="display:none"
+
+onclick="startMemories()">
 
 Continue
 
@@ -199,19 +195,24 @@ Continue
 
 </div>
 
-<!-- PAGE 3 -->
+  <!-- PAGE 3 -->
 
 <div class="page" id="page3">
 
-<div class="slide active" style="background-image:url('joint1.jpg')"></div>
+<div class="slide active"
+style="background-image:url('joint1.jpg')"></div>
 
-<div class="slide" style="background-image:url('joint2.jpg')"></div>
+<div class="slide"
+style="background-image:url('joint2.jpg')"></div>
 
-<div class="slide" style="background-image:url('joint3.jpg')"></div>
+<div class="slide"
+style="background-image:url('joint3.jpg')"></div>
 
-<div class="slide" style="background-image:url('joint4.jpg')"></div>
+<div class="slide"
+style="background-image:url('joint4.jpg')"></div>
 
-<div class="slide" style="background-image:url('joint5.jpg')"></div>
+<div class="slide"
+style="background-image:url('joint5.jpg')"></div>
 
 <div class="overlay"></div>
 
@@ -233,7 +234,13 @@ WE'RE BACK.
 
 </div>
 
-<p class="back-sub">
+<p style="
+margin-top:20px;
+font-size:1.3rem;
+max-width:700px;
+">
+
+It's been a while.
 
 And we'd love to see you again. 🤍
 
@@ -251,17 +258,41 @@ Continue
 
 <div class="page" id="page5">
 
-<h1 style="font-size:clamp(3rem,8vw,6rem);">
+<div class="details">
+
+<h1 style="
+margin-bottom:20px;
+font-size:clamp(2.5rem,7vw,5rem);
+">
 
 JOINT FELLOWSHIP
 
 </h1>
 
-<p style="margin-top:20px;font-size:1.2rem;">
+<p style="
+margin-bottom:30px;
+font-size:1.2rem;
+">
 
-Did you miss this?
+To Every Youth From Every AGCMI Local Church,
 
 </p>
+
+📍 AGCMI Pacita<br>
+
+🗓 August 23, 2026<br>
+
+🕒 3:00 PM<br><br>
+
+Bring Your Friends.<br>
+
+Bring Your Praise.<br>
+
+Bring Your Energy.<br><br>
+
+We'll Save You A Seat. 🤍
+
+</div>
 
 <button onclick="showPage(6)">
 
@@ -275,17 +306,98 @@ See Invitation
 
 <div class="page final" id="page6">
 
-<img src="poster.jpg" class="poster">
+<img src="poster.jpg"
+class="poster"
+alt="Joint Fellowship Poster">
+
+</div><!-- PAGE 3 -->
+
+<div class="page" id="page3">
+
+<div class="slide active"
+style="background-image:url('joint1.jpg')"></div>
+
+<div class="slide"
+style="background-image:url('joint2.jpg')"></div>
+
+<div class="slide"
+style="background-image:url('joint3.jpg')"></div>
+
+<div class="slide"
+style="background-image:url('joint4.jpg')"></div>
+
+<div class="slide"
+style="background-image:url('joint5.jpg')"></div>
+
+<div class="overlay"></div>
+
+<div class="memory-text" id="memoryText">
+
+Remember This?
+
+</div>
+
+</div>
+
+<!-- PAGE 4 -->
+
+<div class="page" id="page4">
+
+<div class="back-title">
+
+WE'RE BACK.
+
+</div>
+
+<p style="
+margin-top:20px;
+font-size:1.3rem;
+max-width:700px;
+">
+
+It's been a while.
+
+And we'd love to see you again. 🤍
+
+</p>
+
+<button onclick="showPage(5)">
+
+Continue
+
+</button>
+
+</div>
+
+<!-- PAGE 5 -->
+
+<div class="page" id="page5">
 
 <div class="details">
+
+<h1 style="
+margin-bottom:20px;
+font-size:clamp(2.5rem,7vw,5rem);
+">
+
+JOINT FELLOWSHIP
+
+</h1>
+
+<p style="
+margin-bottom:30px;
+font-size:1.2rem;
+">
+
+To Every Youth From Every AGCMI Local Church,
+
+</p>
 
 📍 AGCMI Pacita<br>
 
 🗓 August 23, 2026<br>
 
 🕒 3:00 PM<br><br>
-
-To Every Youth From Every AGCMI Local Church,<br><br>
 
 Bring Your Friends.<br>
 
@@ -297,17 +409,149 @@ We'll Save You A Seat. 🤍
 
 </div>
 
+<button onclick="showPage(6)">
+
+See Invitation
+
+</button>
+
 </div>
 
+<!-- PAGE 6 -->
+
+<div class="page final" id="page6">
+
+<img src="poster.jpg"
+class="poster"
+alt="Joint Fellowship Poster">
+
+</div><!-- PAGE 3 -->
+
+<div class="page" id="page3">
+
+<div class="slide active"
+style="background-image:url('joint1.jpg')"></div>
+
+<div class="slide"
+style="background-image:url('joint2.jpg')"></div>
+
+<div class="slide"
+style="background-image:url('joint3.jpg')"></div>
+
+<div class="slide"
+style="background-image:url('joint4.jpg')"></div>
+
+<div class="slide"
+style="background-image:url('joint5.jpg')"></div>
+
+<div class="overlay"></div>
+
+<div class="memory-text" id="memoryText">
+
+Remember This?
+
+</div>
+
+</div>
+
+<!-- PAGE 4 -->
+
+<div class="page" id="page4">
+
+<div class="back-title">
+
+WE'RE BACK.
+
+</div>
+
+<p style="
+margin-top:20px;
+font-size:1.3rem;
+max-width:700px;
+">
+
+It's been a while.
+
+And we'd love to see you again. 🤍
+
+</p>
+
+<button onclick="showPage(5)">
+
+Continue
+
+</button>
+
+</div>
+
+<!-- PAGE 5 -->
+
+<div class="page" id="page5">
+
+<div class="details">
+
+<h1 style="
+margin-bottom:20px;
+font-size:clamp(2.5rem,7vw,5rem);
+">
+
+JOINT FELLOWSHIP
+
+</h1>
+
+<p style="
+margin-bottom:30px;
+font-size:1.2rem;
+">
+
+To Every Youth From Every AGCMI Local Church,
+
+</p>
+
+📍 AGCMI Pacita<br>
+
+🗓 August 23, 2026<br>
+
+🕒 3:00 PM<br><br>
+
+Bring Your Friends.<br>
+
+Bring Your Praise.<br>
+
+Bring Your Energy.<br><br>
+
+We'll Save You A Seat. 🤍
+
+</div>
+
+<button onclick="showPage(6)">
+
+See Invitation
+
+</button>
+
+</div>
+
+<!-- PAGE 6 -->
+
+<div class="page final" id="page6">
+
+<img src="poster.jpg"
+class="poster"
+alt="Joint Fellowship Poster">
+
+</div>
 <script>
 
 function showPage(page){
 
-document.querySelectorAll('.page').forEach(p=>{
-p.classList.remove('active');
-});
+document
+.querySelectorAll('.page')
+.forEach(p=>p.classList.remove('active'));
 
-document.getElementById('page'+page).classList.add('active');
+document
+.getElementById('page'+page)
+.classList.add('active');
 
 }
 
@@ -321,11 +565,11 @@ We've missed this.
 
 Remember the worship?
 
-The fellowship?
+Remember the fellowship?
 
-The laughter?
+Remember the laughter?
 
-The memories?
+Remember the memories?
 
 We're bringing it back.
 
@@ -336,11 +580,13 @@ let started = false;
 
 function type(){
 
-const target = document.getElementById('typing');
+const target =
+document.getElementById('typing');
 
 if(i < message.length){
 
-target.innerHTML += message.charAt(i) === '\n'
+target.innerHTML +=
+message.charAt(i) === '\n'
 ? '<br>'
 : message.charAt(i);
 
@@ -350,7 +596,9 @@ setTimeout(type,40);
 
 }else{
 
-document.getElementById('continueBtn').style.display='inline-block';
+document
+.getElementById('continueBtn')
+.style.display = 'inline-block';
 
 }
 
@@ -367,22 +615,32 @@ type();
 }
 
 const memoryTexts = [
+
 'Remember This?',
+
 'The Worship.',
+
 'The Fellowship.',
+
 'The Laughter.',
+
 'The Memories.'
+
 ];
 
 function startMemories(){
 
 showPage(3);
 
-const slides = document.querySelectorAll('.slide');
+const slides =
+document.querySelectorAll('.slide');
 
 let current = 0;
 
-const memoryLabel = document.getElementById('memoryText');
+const memoryLabel =
+document.getElementById('memoryText');
+
+slides[current].classList.add('active');
 
 const interval = setInterval(()=>{
 
@@ -395,7 +653,9 @@ if(current >= slides.length){
 clearInterval(interval);
 
 setTimeout(()=>{
+
 showPage(4);
+
 },2500);
 
 return;
@@ -404,7 +664,8 @@ return;
 
 slides[current].classList.add('active');
 
-memoryLabel.innerText = memoryTexts[current];
+memoryLabel.innerText =
+memoryTexts[current];
 
 },3500);
 
